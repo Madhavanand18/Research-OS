@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResearchOS — Offline Intelligence Demo</title>
+  <meta name="description" content="ResearchOS offline demo: AI-powered research intelligence platform showcasing impact of AI on employment in India by 2035." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- All fonts, scripts, and data are local — no network requests made -->
+</head>
+<body>
+
+<!-- ============================================================ OFFLINE BANNER -->
+<div class="offline-banner" id="offline-banner">
+  <div class="offline-banner-left">
+    <span class="badge">DEMO</span>
+    <span>ResearchOS Offline Demo — All data is preloaded. No internet, API keys, or backend required.</span>
+  </div>
+  <div class="offline-banner-right">
+    <span>⚠ Illustrative data — Not verified research</span>
+    <span>|</span>
+    <span>file:// compatible</span>
+  </div>
+</div>
+
+<!-- ============================================================ NAVBAR -->
+<header class="navbar" id="navbar">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="nav-brand" onclick="showView('new')">
+      <div class="brand-icon">R</div>
+      <span class="brand-text">ResearchOS</span>
+      <span class="brand-mode">Offline Demo</span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <button class="nav-btn active" id="nav-new" onclick="showView('new')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        New Research
+      </button>
+      <button class="nav-btn" id="nav-projects" onclick="showView('projects')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Projects
+      </button>
+      <button class="nav-btn hidden" id="nav-workspace" onclick="showView('workspace')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Live Workspace
+      </button>
+      <button class="nav-btn hidden" id="nav-dashboard" onclick="showView('dashboard')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-btn hidden" id="nav-sources" onclick="showView('sources')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Sources
+      </button>
+      <button class="nav-btn hidden" id="nav-knowledge" onclick="showView('knowledge')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+        Knowledge
+      </button>
+      <button class="nav-btn hidden" id="nav-report" onclick="showView('report')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+        Report
+      </button>
+    </nav>
+  </div>
+  <div class="nav-status">
+    <div class="status-badge">
+      <div class="status-pulse"></div>
+      Engine Online
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ MAIN VIEWS -->
+<div id="main-scroll">
+
+<!-- ============================== VIEW: NEW RESEARCH -->
+<div class="view-panel active" id="view-new">
+  <div class="main-content">
+    <div class="hero-header" style="padding-top:16px;">
+      <h1 class="hero-title">Research anything.</h1>
+      <p class="hero-subtitle">Turn a question into a traceable, multi-sourced body of evidence.</p>
+    </div>
+
+    <div style="max-width:720px;margin:0 auto;">
+      <!-- Demo notice -->
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:#1e40af;display:flex;gap:10px;align-items:flex-start;">
+        <span style="font-size:16px;">ℹ️</span>
+        <div>
+          <strong>Offline Demo Mode</strong> — This is a self-contained demonstration. Clicking "Start Research" will simulate the live pipeline using preloaded benchmark data. No API calls, internet, or server required.
+        </div>
+      </div>
+
+      <!-- Query Box -->
+      <div class="research-form-card">
+        <label class="query-input-label">What would you like to investigate?</label>
+        <div class="query-input-box">
+          <textarea id="query-input" class="query-textarea" rows="4" placeholder="Type your research question here..."></textarea>
+          <div class="query-footer">
+            <button onclick="document.getElementById('query-input').value=DEMO_PROJECTS[0].research_question;updateCharCount();" style="background:none;border:none;cursor:pointer;font-size:11.5px;color:#64748b;display:flex;align-items:center;gap:4px;font-family:inherit;">
+              ✦ Use example question
+            </button>
+            <span id="char-count" style="font-size:11.5px;color:#94a3b8;">0 chars</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example chips -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Sample Research Questions</div>
+        <div class="example-chips">
+          <div class="example-chip" onclick="setQuery(DEMO_PROJECTS[0].research_question)">🇮🇳 AI & Employment in India (2035)</div>
+          <div class="example-chip" onclick="setQuery(DEMO_PROJECTS[1].research_question)">⚡ SMRs vs. Grid-Scale Battery Storage</div>
+        </div>
+      </div>
+
+      <!-- Config Grid -->
+      <div class="config-grid" style="margin-bottom:24px;">
+        <div>
+          <div class="card-title" style="margin-bottom:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+            Research Depth
+          </div>
+          <div class="depth-selector">
+            <div class="depth-card" id="depth-quick" onclick="selectDepth('quick')">
+              <div class="depth-title">Quick</div>
+              <div class="depth-desc">~10-15 sources</div>
+            </div>
+            <div class="depth-card" id="depth-deep" onclick="selectDepth('deep')">
+              <div class="depth-title">Deep</div>
+              <div class="depth-desc">~20-30 sources</div>
+            </div>
+            <div class="depth-card selected" id="depth-comprehensive" onclick="selectDepth('comprehensive')">
+              <div class="depth-title">Comprehensive</div>
+              <div class="depth-desc">~30-50+ sources</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card-title" style="margin-bottom:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+            Analysis Features
+          </div>
+          <div class="features-grid">
+            <label class="feature-checkbox"><input type="checkbox" checked /> Extract Statistics</label>
+            <label class="feature-checkbox"><input type="checkbox" checked /> Generate Charts</label>
+            <label class="feature-checkbox"><input type="checkbox" checked /> Academic Search</label>
+            <label class="feature-checkbox"><input type="checkbox" checked /> Knowledge Graph</label>
+            <label class="feature-checkbox"><input type="checkbox" checked /> Contradictions</label>
+            <label class="feature-checkbox"><input type="checkbox" checked /> Research Gaps</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div style="display:flex;justify-content:flex-end;">
+        <button class="btn btn-primary" id="start-btn" onclick="startResearch()" style="font-size:13px;padding:10px 22px;">
+          START RESEARCH →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: PROJECTS -->
+<div class="view-panel" id="view-projects">
+  <div class="main-content">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <div>
+        <h1 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;">Research Projects</h1>
+        <p style="font-size:12px;color:#64748b;margin-top:4px;">Browse and open completed research investigations.</p>
+      </div>
+      <button class="btn btn-outline" onclick="showView('new')">+ New Research</button>
+    </div>
+    <div class="projects-grid" id="projects-list"></div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: LIVE WORKSPACE -->
+<div class="view-panel" id="view-workspace">
+  <div class="main-content">
+    <!-- Banner -->
+    <div class="workspace-banner" id="ws-banner">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:11px;font-weight:600;background:#f1f5f9;color:#334155;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;" id="ws-depth-badge">Comprehensive</span>
+          <span id="ws-status-badge" style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;display:flex;align-items:center;gap:6px;">
+            <span class="spinner" id="ws-spinner"></span> Running Pipeline
+          </span>
+        </div>
+        <h2 style="font-size:17px;font-weight:700;color:#0f172a;max-width:780px;line-height:1.4;" id="ws-question-title">Loading research task...</h2>
+      </div>
+      <button class="btn btn-primary hidden" id="ws-open-dashboard" onclick="showView('dashboard')">
+        Open Research Dashboard →
+      </button>
+    </div>
+
+    <!-- 3-Column Layout -->
+    <div class="workspace-3col">
+      <!-- Pipeline stages -->
+      <div class="card" style="height:fit-content;">
+        <div class="card-title" style="margin-bottom:14px;">Research Pipeline</div>
+        <div class="pipeline-list" id="pipeline-stages"></div>
+      </div>
+
+      <!-- Live activity terminal -->
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <div class="card-title">
+            <div class="pulse-dot" id="live-pulse"></div>
+            Live Activity
+          </div>
+          <span id="event-count-badge" style="font-size:10.5px;color:#94a3b8;font-family:monospace;">0 events logged</span>
+        </div>
+        <div class="terminal-scroll" id="terminal-log">
+          <div style="text-align:center;color:#94a3b8;font-size:12px;padding:40px 0;font-style:italic;">Awaiting pipeline events...</div>
+        </div>
+      </div>
+
+      <!-- Live metrics -->
+      <div class="card" style="height:fit-content;">
+        <div class="card-title" style="margin-bottom:14px;">Live Metrics</div>
+        <div class="metrics-tile-list" id="live-metrics"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: DASHBOARD -->
+<div class="view-panel" id="view-dashboard">
+  <div class="main-content">
+    <!-- Header card -->
+    <div class="dashboard-header-card">
+      <div class="dashboard-title-row">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <span style="font-size:11px;font-weight:600;background:#f1f5f9;color:#334155;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;">Research Project</span>
+            <span id="quality-badge" style="font-size:11px;font-weight:600;background:#ecfdf5;color:#047857;border:1px solid #d1fae5;padding:2px 8px;border-radius:4px;">Quality Score: 8.7/10</span>
+          </div>
+          <h1 class="dashboard-h1" id="dash-title"></h1>
+        </div>
+        <div style="display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;">
+          <button class="btn btn-outline btn-sm" onclick="showView('knowledge')">Knowledge Graph</button>
+          <button class="btn btn-primary btn-sm" onclick="showView('report')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Executive Report
+          </button>
+        </div>
+      </div>
+      <div class="exec-summary-box">
+        <strong style="color:#0f172a;font-size:12px;display:block;margin-bottom:4px;">Executive Summary:</strong>
+        <span id="dash-summary"></span>
+      </div>
+    </div>
+
+    <!-- 8 metrics strip -->
+    <div class="metrics-strip-8" id="metrics-strip"></div>
+
+    <!-- Charts + Contradictions/Gaps row -->
+    <div class="grid-2col-7-5" id="grid-charts-row">
+      <!-- Stats chart card -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div class="card-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            Extracted Statistical Insights
+          </div>
+          <span style="font-size:10.5px;color:#94a3b8;">Illustrative Demo Data</span>
+        </div>
+        <div class="chart-container" id="chart-container">
+          <canvas id="stats-chart" style="width:100%;height:100%;"></canvas>
+          <div class="chart-tooltip" id="chart-tooltip"></div>
+        </div>
+        <div class="stat-mini-grid" id="stat-mini-grid"></div>
+      </div>
+
+      <!-- Contradictions & Gaps stack -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="card">
+          <div class="card-title" style="color:#b45309;margin-bottom:12px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Contradiction Analysis (<span id="con-count">0</span>)
+          </div>
+          <div class="contradiction-list" id="contradictions-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="margin-bottom:12px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Identified Research Gaps (<span id="gaps-count">0</span>)
+          </div>
+          <div class="gaps-list" id="gaps-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Claims + Timeline row -->
+    <div class="grid-2col-7-5" style="margin-bottom:24px;">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:14px;">Key Extracted Claims (<span id="claims-count">0</span>)</div>
+        <div class="claims-list" id="claims-list"></div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="margin-bottom:14px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Timeline Projection (<span id="timeline-count">0</span>)
+        </div>
+        <div class="timeline-list" id="timeline-list"></div>
+      </div>
+    </div>
+
+    <!-- Academic papers -->
+    <div class="card" style="margin-bottom:24px;" id="academic-section">
+      <div class="card-title" style="margin-bottom:14px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Semantic Scholar Academic Papers (<span id="papers-count">0</span>)
+      </div>
+      <div id="papers-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
+    </div>
+
+    <!-- Ask the Research -->
+    <div class="ask-section">
+      <h3 style="font-size:14px;font-weight:700;color:#0f172a;">Ask the Research</h3>
+      <p style="font-size:12px;color:#64748b;margin-top:2px;">Query the collected body of claims, sources, and statistics. Answers are generated from the preloaded sample dataset only.</p>
+      <div class="ask-form">
+        <input class="ask-input" id="ask-input" type="text" placeholder="e.g. Which sources disagree? What is the strongest counter-argument?" onkeydown="if(event.key==='Enter')submitAsk()" />
+        <button class="btn btn-primary btn-sm" onclick="submitAsk()" id="ask-btn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Ask
+        </button>
+      </div>
+      <div class="ask-samples">
+        <span class="ask-sample-pill" onclick="setAsk(this.textContent)">Which sources disagree on net job impact?</span>
+        <span class="ask-sample-pill" onclick="setAsk(this.textContent)">What does the evidence say about agriculture?</span>
+        <span class="ask-sample-pill" onclick="setAsk(this.textContent)">What are the main research gaps?</span>
+        <span class="ask-sample-pill" onclick="setAsk(this.textContent)">What is the reskilling requirement?</span>
+        <span class="ask-sample-pill" onclick="setAsk(this.textContent)">Is AI a net positive for India employment?</span>
+      </div>
+      <div class="ask-result-box hidden" id="ask-result">
+        <strong>Answer (from preloaded demo data):</strong>
+        <p id="ask-result-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: SOURCES -->
+<div class="view-panel" id="view-sources">
+  <div class="main-content">
+    <div class="sources-toolbar">
+      <div>
+        <h1 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;">Sources & Academic Explorer</h1>
+        <p style="font-size:12px;color:#64748b;margin-top:4px;" id="sources-count-label">Browse all sources and academic papers.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <div class="search-field">
+          <svg class="search-icon-pos" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="sources-search" placeholder="Filter by title, domain..." oninput="filterSources()" />
+        </div>
+        <div class="filter-pills-bar" id="sources-filter-bar">
+          <button class="filter-pill active" data-filter="all" onclick="setSourceFilter(this)">All</button>
+          <button class="filter-pill" data-filter="industry" onclick="setSourceFilter(this)">Industry</button>
+          <button class="filter-pill" data-filter="government" onclick="setSourceFilter(this)">Government</button>
+          <button class="filter-pill" data-filter="academic" onclick="setSourceFilter(this)">Academic</button>
+          <button class="filter-pill" data-filter="web" onclick="setSourceFilter(this)">Web</button>
+        </div>
+      </div>
+    </div>
+    <!-- Academic papers section -->
+    <div class="card" style="margin-bottom:24px;" id="src-academic-section">
+      <div class="card-title" style="margin-bottom:14px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Semantic Scholar Academic Papers (<span id="src-papers-count">0</span>)
+      </div>
+      <div id="src-papers-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
+    </div>
+    <div class="sources-grid" id="sources-grid"></div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: KNOWLEDGE GRAPH -->
+<div class="view-panel" id="view-knowledge">
+  <div class="main-content">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+      <div>
+        <h1 style="font-size:22px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+          Knowledge Graph
+        </h1>
+        <p style="font-size:12px;color:#64748b;margin-top:4px;">Causal relationships and entities triangulated from research findings. Click nodes to inspect.</p>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-outline btn-sm" onclick="resetGraphView()">Reset View</button>
+      </div>
+    </div>
+    <div class="kg-container" id="kg-container">
+      <div class="kg-controls" id="kg-controls">
+        <button class="kg-ctrl-btn" onclick="kgZoom(1.2)" title="Zoom in">+</button>
+        <button class="kg-ctrl-btn" onclick="kgZoom(0.8)" title="Zoom out">−</button>
+        <button class="kg-ctrl-btn" onclick="resetGraphView()" title="Fit">⊙</button>
+      </div>
+      <svg id="kg-svg" style="width:100%;height:100%;position:absolute;top:0;left:0;overflow:visible;">
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+          </marker>
+        </defs>
+        <g id="kg-graph-group">
+          <g id="kg-edges-group"></g>
+          <g id="kg-nodes-group"></g>
+        </g>
+      </svg>
+      <div class="kg-legend">
+        <span class="kg-legend-item"><span class="kg-legend-dot" style="background:#2563eb;"></span>Technology</span>
+        <span class="kg-legend-item"><span class="kg-legend-dot" style="background:#7c3aed;"></span>Organization</span>
+        <span class="kg-legend-item"><span class="kg-legend-dot" style="background:#059669;"></span>Government</span>
+        <span class="kg-legend-item"><span class="kg-legend-dot" style="background:#d97706;"></span>Industry</span>
+        <span class="kg-legend-item"><span class="kg-legend-dot" style="background:#64748b;"></span>Other</span>
+      </div>
+      <div id="kg-inspector" class="kg-inspector-drawer" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <strong style="font-size:12px;">Entity Inspector</strong>
+          <button onclick="document.getElementById('kg-inspector').style.display='none';" style="border:none;background:none;cursor:pointer;font-size:14px;color:#64748b;">✕</button>
+        </div>
+        <div id="kg-inspector-content" style="font-size:12px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== VIEW: REPORT -->
+<div class="view-panel" id="view-report">
+  <div class="main-content">
+    <div class="report-max-wrap">
+      <div class="report-action-bar print-hide">
+        <div>
+          <span style="font-size:11px;font-weight:600;background:#f1f5f9;color:#334155;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;">Synthesized Intelligence</span>
+          <h1 style="font-size:19px;font-weight:700;color:#0f172a;margin-top:6px;">Research Report</h1>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-outline btn-sm" id="copy-md-btn" onclick="copyReportMarkdown()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Markdown
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="downloadReport()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download .md
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="window.print()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print Report
+          </button>
+        </div>
+      </div>
+
+      <article class="report-article" id="report-article">
+        <!-- Populated by JS -->
+      </article>
+    </div>
+  </div>
+</div>
+
+</div><!-- end #main-scroll -->
+
+<!-- Toast -->
+<div class="toast-msg" id="toast"></div>
+
+<!-- ============================================================ SCRIPTS -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
